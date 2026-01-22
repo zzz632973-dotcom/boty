@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AURA</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Укажите URL вашего backend сервера здесь -->
+    <script>
+        // Для локальной разработки оставьте пустым или укажите 'http://localhost:3000'
+        // Для продакшена укажите URL вашего backend (например: 'https://aura-backend.herokuapp.com')
+        window.API_BASE_URL = ''; // Оставьте пустым для локального или укажите URL backend
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">AURA</h1>
+        
+        <div class="profile-section">
+            <div class="photo-wrapper">
+                <div class="waveform-ring"></div>
+                <img id="profilePhoto" src="" alt="Profile" class="profile-photo">
+            </div>
+            
+            <div class="profile-name">
+                <span id="profileName">Загрузка...</span> 👉
+            </div>
+            
+            <div class="rating-display">
+                <span id="averageRating">0.0</span>
+            </div>
+            
+            <div class="quick-feedback">
+                <button class="thumbs-btn thumbs-up" id="thumbsUp">👍</button>
+                <button class="thumbs-btn thumbs-down" id="thumbsDown">👎</button>
+            </div>
+        </div>
+        
+        <div class="rating-section">
+            <label class="rating-label">Оценка (1-10):</label>
+            <div class="rating-input">
+                <input type="range" id="ratingSlider" min="1" max="10" value="5" step="0.1">
+                <div class="rating-value" id="ratingValue">5.0</div>
+            </div>
+            
+            <div class="rating-buttons">
+                <button class="rating-btn" data-rating="1">1</button>
+                <button class="rating-btn" data-rating="3">3</button>
+                <button class="rating-btn" data-rating="5">5</button>
+                <button class="rating-btn" data-rating="7">7</button>
+                <button class="rating-btn" data-rating="10">10</button>
+            </div>
+        </div>
+        
+        <div class="tags-section">
+            <div class="tags-label">Теги (бонус +0.5):</div>
+            <div class="tags-container" id="tagsContainer">
+                <button class="tag tag-blue" data-tag="Вдохновляет">Вдохновляет</button>
+                <button class="tag tag-purple" data-tag="Честный">Честный</button>
+                <button class="tag tag-green" data-tag="Душевный">Душевный</button>
+                <button class="tag tag-pink" data-tag="Креативный">Креативный</button>
+                <button class="tag tag-yellow" data-tag="Дружелюбный">Дружелюбный</button>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <button class="action-btn primary" id="rateBtn">Оценить</button>
+            <button class="action-btn secondary" id="skipBtn">Следующий профиль</button>
+            <button class="action-btn secondary" id="myProfileBtn">Мой профиль</button>
+            <button class="action-btn secondary" id="top5Btn">Топ-5</button>
+            <button class="action-btn premium" id="premiumBtn">⭐ Premium</button>
+        </div>
+        
+        <div class="top5-modal" id="top5Modal">
+            <div class="modal-content">
+                <h2>🏆 Топ-5 пользователей</h2>
+                <div id="top5List"></div>
+                <button class="close-btn" id="closeTop5">Закрыть</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
+
